@@ -2,14 +2,14 @@
 
 vocab_size = 50257    # стандартное для GPT2
 block_size = 1024     # сколько токенов в одном куске текста
-n_layer = 12  # 12
-n_head = 12  # 12
+n_layer = 8  # 12
+n_head = 8  # 12
 n_embd = 768  # 768
 
 
 dropout = 0.1
 
-batch_size = 12  # 12
+batch_size = 6  # 12
 learning_rate = 3e-4
 max_iters = 50_000
 eval_interval = 1000
