@@ -9,7 +9,7 @@ n_embd = 1024  # 768
 
 dropout = 0.1
 
-batch_size = 256  # 6
+batch_size = 128  # 6
 learning_rate = 3e-4
 max_iters = 50_000
 eval_interval = 1000
