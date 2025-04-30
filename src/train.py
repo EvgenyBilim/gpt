@@ -11,7 +11,10 @@ from src.config import block_size, n_layer, n_head, n_embd, dropout, train_file
 from src.config import batch_size, learning_rate, max_iters, eval_interval, eval_iters, log_interval
 
 # Девайс
-device = 'mps' if torch.backends.mps.is_available() else 'cpu'
+# device = 'mps' if torch.backends.mps.is_available() else 'cpu'
+device = 'cuda' if torch.cuda.is_available() else ('mps' if torch.backends.mps.is_available() else 'cpu')
+print(f"Device: {device}")
+
 
 # Загружаем датасет
 with open(train_file, 'r', encoding='utf-8') as f:
