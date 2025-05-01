@@ -2,9 +2,9 @@ import torch
 from src.gpt import GPT, GPTConfig
 from src.tokenizer import SimpleTokenizer
 
-from src.config import vocab_size, block_size, n_layer, n_head, n_embd, dropout, train_file
+from src.config import block_size, n_layer, n_head, n_embd, dropout, train_file
 
-device = 'mps' if torch.backends.mps.is_available() else 'cpu'
+device = 'cuda' if torch.cuda.is_available() else ('mps' if torch.backends.mps.is_available() else 'cpu')
 
 
 # Загружаем данные для токенизатора
