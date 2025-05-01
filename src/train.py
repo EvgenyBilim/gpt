@@ -13,11 +13,11 @@ from src.config import learning_rate, eval_interval, eval_iters, log_interval, t
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--n_layer', type=int, default=8)
-parser.add_argument('--n_head', type=int, default=8)
-parser.add_argument('--n_embd', type=int, default=512)
-parser.add_argument('--batch_size', type=int, default=6)
-parser.add_argument('--max_iters', type=int, default=5_000)
+parser.add_argument('--n_layer', type=int, default=12)
+parser.add_argument('--n_head', type=int, default=12)
+parser.add_argument('--n_embd', type=int, default=768)
+parser.add_argument('--batch_size', type=int, default=10)
+parser.add_argument('--max_iters', type=int, default=50_000)
 
 args = parser.parse_args()
 
