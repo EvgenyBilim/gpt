@@ -11,4 +11,4 @@ COPY . .
 RUN pip install -r requirements.txt
 
 # Указываем точку входа
-CMD ["python", "src/train.py"]
+CMD ["python3", "src/train.py"]

@@ -1,17 +1,33 @@
-from datetime import datetime
+import argparse
 import os
 import torch
+
+from datetime import datetime
 
 from src.gpt import GPT, GPTConfig
 from src.tokenizer import SimpleTokenizer
 
+# from src.config import block_size, n_layer, n_head, n_embd, dropout, batch_size, max_iters
+from src.config import learning_rate, eval_interval, eval_iters, log_interval, train_file
 
-# Гиперпараметры
-from src.config import block_size, n_layer, n_head, n_embd, dropout, train_file
-from src.config import batch_size, learning_rate, max_iters, eval_interval, eval_iters, log_interval
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--n_layer', type=int, default=8)
+parser.add_argument('--n_head', type=int, default=8)
+parser.add_argument('--n_embd', type=int, default=512)
+parser.add_argument('--batch_size', type=int, default=6)
+parser.add_argument('--max_iters', type=int, default=5_000)
+
+args = parser.parse_args()
+
+n_layer = args.n_layer
+n_head = args.n_head
+n_embd = args.n_embd
+batch_size = args.batch_size
+max_iters = args.max_iters
+
 
 # Девайс
-# device = 'mps' if torch.backends.mps.is_available() else 'cpu'
 device = 'cuda' if torch.cuda.is_available() else ('mps' if torch.backends.mps.is_available() else 'cpu')
 print(f"Device: {device}")
 
