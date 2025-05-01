@@ -8,6 +8,7 @@ from src.gpt import GPT, GPTConfig
 from src.tokenizer import SimpleTokenizer
 
 # from src.config import block_size, n_layer, n_head, n_embd, dropout, batch_size, max_iters
+from src.config import block_size, dropout
 from src.config import learning_rate, eval_interval, eval_iters, log_interval, train_file
 
 
