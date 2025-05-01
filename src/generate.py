@@ -1,8 +1,8 @@
 import torch
-from model.gpt import GPT, GPTConfig
-from tokenizer import SimpleTokenizer
+from src.gpt import GPT, GPTConfig
+from src.tokenizer import SimpleTokenizer
 
-from config import vocab_size, block_size, n_layer, n_head, n_embd, dropout, train_file
+from src.config import vocab_size, block_size, n_layer, n_head, n_embd, dropout, train_file
 
 device = 'mps' if torch.backends.mps.is_available() else 'cpu'
 
@@ -23,7 +23,7 @@ config = GPTConfig(
 )
 
 model = GPT(config)
-model.load_state_dict(torch.load('checkpoints/mini_gpt2.pth', map_location=device))
+model.load_state_dict(torch.load('src/checkpoints/mini_gpt2.pth', map_location=device))
 model = model.to(device)
 model.eval()
 
